@@ -1,6 +1,6 @@
-name:          Code Guide by @mdo
-description:   Standards for developing flexible, durable, and sustainable HTML and CSS.
-url:           http://codeguide.co
+name:          CSS Code Guide for Gateprotect
+fork:          forked from @mdo codeguide.co
+description:   Standards for developing flexible, durable, and sustainable SASS and postCSS.
 
 markdown:      rdiscount
 permalink:     pretty

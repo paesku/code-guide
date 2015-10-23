@@ -1,0 +1,14 @@
+/* Give statements a good default */
+
+$red: #f00 !default;
+$blue: #00f !default;
+$theme: false !default;
+
+.class {
+
+  @if ($theme == true) {
+    background-color: $red;
+  } @else {
+    background-color: $blue;
+  }
+}

@@ -1,0 +1,9 @@
+/* Declare Component specific Variables on top of the file */
+
+$example-var: 200px !default;
+$mega-class-color: $theme-main-color;
+
+.mega-class {
+  height: $example-var;
+  background-color: $mega-class-color;
+}
