@@ -1,0 +1,39 @@
+/* Good Example */
+
+@mixin theme-background($bg: #f55) {
+    background-color: $bg;
+}
+
+
+/* Bad Example */
+
+@mixin button {
+    padding: 10px;
+    color: #fff;
+    background-color: red;
+    font-size: 14px;
+    width: 150px;
+    margin: 5px 0;
+    text-align: center;
+    display: block;
+}
+
+
+.wrapper {
+  @include theme-background(#0f9);
+}
+
+
+/* Placeholder */
+
+%bg-image {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.image-one {
+    @extend %bg-image;
+    background-image:url(/img/image-one.jpg");
+}

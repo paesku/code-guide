@@ -29,6 +29,7 @@ layout: default
       <li><a href="#sass-nesting">Nesting in Sass</a></li>
       <li><a href="#sass-operators">Operators in Sass</a></li>
       <li><a href="#sass-statements">Statements in Sass</a></li>
+      <li><a href="#sass-mixins">Mixins in Sass</a></li>
       <li><a href="#css-organization">Organization</a></li>
     </ul>
     <h4><a href="#appendix">Appendix</a></h4>
@@ -230,7 +231,8 @@ layout: default
   <div class="col">
     <h3>Nesting in Sass</h3>
     <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should.
-      Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
+      Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.
+    Ensure that outcoming css is still readable.</p>
     <p>Additional reading:</p>
     <ul>
       <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass</a></li>
@@ -259,6 +261,22 @@ layout: default
   </div>
   <div class="col">
     {% highlight scss %}{% include css/statements.scss %}{% endhighlight %}
+  </div>
+</div>
+
+
+<div class="section" id="sass-mixins" data-scroll="sass">
+  <div class="col">
+    <h3>Mixins in Sass</h3>
+    <p>
+      Use mixins if you use at least on argument, so it can be reused and modified.
+      If it is more component specific, give it some good defaults.
+      Otherwise use a simple placehoder. You can use placholders together with mixins to make the code more structured.
+    </p>
+    <p>Read more about <a href="http://www.sitepoint.com/8-tips-help-get-best-sass/">Sass best practices</a>.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/mixins.scss %}{% endhighlight %}
   </div>
 </div>
 
