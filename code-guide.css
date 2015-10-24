@@ -75,6 +75,15 @@ h2 { font-size: 2.5rem; }
 h3 { font-size: 1.75rem; }
 h4 { font-size: 1.25rem }
 
+h3 > a {
+  color: grey;
+}
+
+h3 > a:hover {
+  color: darkgrey;
+  text-decoration: none;
+}
+
 p {
   margin: 0 0 1rem;
 }

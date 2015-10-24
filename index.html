@@ -8,34 +8,46 @@ layout: default
 </div>
 <div class="section toc">
   <div class="col">
-    <h4><a href="#css">SASS</a></h4>
+    <h4><a href="#css">CSS</a></h4>
     <ul>
-      <li><a href="#css-basics">SASS Basics</a></li>
-      <li><a href="#css-syntax">SASS syntax</a></li>
+      <li><a href="#css-basics">CSS Basics</a></li>
+      <li><a href="#css-syntax">Syntax</a></li>
       <li><a href="#css-declaration-order">Declaration order</a></li>
       <li><a href="#css-media-queries">Media query placement</a></li>
       <li><a href="#css-single-declarations">Rules with single declarations</a></li>
       <li><a href="#css-shorthand">Shorthand notation</a></li>
-      <li><a href="#css-variables">Variables in Sass</a></li>
-      <li><a href="#css-nesting">Nesting in Sass</a></li>
-      <li><a href="#css-operators">Operators in Sass</a></li>
-      <li><a href="#css-statements">Statements in Sass</a></li>
       <li><a href="#css-comments">Comments</a></li>
       <li><a href="#css-classes">Classes</a></li>
       <li><a href="#css-selectors">Selectors</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4><a href="#sass">SASS</a></h4>
+    <ul>
+      <li><a href="#sass-themeing">Themeing</a></li>
+      <li><a href="#sass-variables">Variables in Sass</a></li>
+      <li><a href="#sass-nesting">Nesting in Sass</a></li>
+      <li><a href="#sass-operators">Operators in Sass</a></li>
+      <li><a href="#sass-statements">Statements in Sass</a></li>
       <li><a href="#css-organization">Organization</a></li>
+    </ul>
+    <h4><a href="#appendix">Appendix</a></h4>
+    <ul>
+      <li><a href="#editor-prefs">Editor Settings</a></li>
     </ul>
   </div>
 </div>
 
 <div class="heading" id="css">
-  <h2>SASS</h2>
+  <h2>CSS</h2>
 </div>
 
-<div class="section" id="css-basics">
+<div class="section" id="css-basics" data-scroll="css">
   <div class="col">
-    <h3>SASS Basics</h3>
+    <h3>CSS Basics</h3>
     <p>
+      This document is a very basic reference to our common CSS code styles. Given that we are using SASS, there are
+      some basics about variables and file structures included.
       We use autoprefixer postCSS Plugin, so there is no need to write them in your code.
     </p>
   </div>
@@ -43,10 +55,13 @@ layout: default
     <blockquote>
       <p>Every line of code should appear to be written by a single person, no matter the number of contributors.</p>
     </blockquote>
+    <p>
+      by @mdo
+    </p>
   </div>
 </div>
 
-<div class="section" id="css-syntax">
+<div class="section" id="css-syntax" data-scroll="css">
   <div class="col">
     <h3>Syntax</h3>
     <ul>
@@ -72,7 +87,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-declaration-order">
+<div class="section" id="css-declaration-order" data-scroll="css">
   <div class="col">
     <h3>Declaration order</h3>
     <p>Related property declarations should be grouped together following the order:</p>
@@ -94,7 +109,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-media-queries">
+<div class="section" id="css-media-queries" data-scroll="css">
   <div class="col">
     <h3>Media query placement</h3>
     <p>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate
@@ -106,7 +121,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-single-declarations">
+<div class="section" id="css-single-declarations" data-scroll="css">
   <div class="col">
     <h3>Single declarations</h3>
     <p>In instances where a rule set includes <strong>only one declaration</strong>, consider removing line breaks for
@@ -119,7 +134,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-shorthand">
+<div class="section" id="css-shorthand" data-scroll="css">
   <div class="col">
     <h3>Shorthand notation</h3>
     <p>Strive to limit use of shorthand declarations to instances where you must explicitly set all the available
@@ -144,54 +159,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-variables">
-  <div class="col">
-    <h3>Variables in Sass</h3>
-    <p>Ensure you extract component variables to the top of the component file.
-    It helps other developers to get an overview of the available settings.</p>
-  </div>
-  <div class="col">
-    {% highlight scss %}{% include css/variables.scss %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-nesting">
-  <div class="col">
-    <h3>Nesting in Sass</h3>
-    <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should.
-      Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
-    <p>Additional reading:</p>
-    <ul>
-      <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass</a></li>
-    </ul>
-  </div>
-  <div class="col">
-    {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-operators">
-  <div class="col">
-    <h3>Operators in Sass</h3>
-    <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables,
-      and operators.</p>
-  </div>
-  <div class="col">
-    {% highlight scss %}{% include css/operators.scss %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-statements">
-  <div class="col">
-    <h3>Statements in Sass</h3>
-    <p> </p>
-  </div>
-  <div class="col">
-    {% highlight scss %}{% include css/statements.scss %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-comments">
+<div class="section" id="css-comments" data-scroll="css">
   <div class="col">
     <h3>Comments</h3>
     <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by
@@ -203,7 +171,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-classes">
+<div class="section" id="css-classes" data-scroll="css">
   <div class="col">
     <h3>Class names</h3>
     <ul>
@@ -222,7 +190,7 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-selectors">
+<div class="section" id="css-selectors" data-scroll="css">
   <div class="col">
     <h3>Selectors</h3>
     <ul>
@@ -243,7 +211,58 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-organization">
+<div class="heading" id="sass">
+  <h2>SASS</h2>
+</div>
+
+<div class="section" id="sass-variables" data-scroll="sass">
+  <div class="col">
+    <h3>Variables in Sass</h3>
+    <p>Ensure you extract component variables to the top of the component file.
+    It helps other developers to get an overview of the available settings.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/variables.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-nesting" data-scroll="sass">
+  <div class="col">
+    <h3>Nesting in Sass</h3>
+    <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should.
+      Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
+    <p>Additional reading:</p>
+    <ul>
+      <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-operators" data-scroll="sass">
+  <div class="col">
+    <h3>Operators in Sass</h3>
+    <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables,
+      and operators.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/operators.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-statements" data-scroll="sass">
+  <div class="col">
+    <h3>Statements in Sass</h3>
+    <p>Read more about <a href="http://thesassway.com/intermediate/if-for-each-while">statements in Sass</a>.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/statements.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-organization" data-scroll="sass">
   <div class="col">
     <h3>Organization</h3>
     <ul>
@@ -258,7 +277,12 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-editor-prefs">
+<div class="heading" id="appendix" data-scroll="css">
+  <h2>Appendix</h2>
+</div>
+
+
+<div class="section" id="editor-prefs" data-scroll="css">
   <div class="col">
     <h3>Editor preferences</h3>
     <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
