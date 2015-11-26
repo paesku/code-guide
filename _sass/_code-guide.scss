@@ -90,27 +90,23 @@ sup {
 }
 
 blockquote {
-  position: relative;
+  padding-left: 1rem;
   margin: 0 1rem 1rem;
   font-style: italic;
   color: $lightgrey;
-}
+  border-left: 2px solid $darkgrey;
 
-blockquote p {
-  margin-bottom: 0;
+  p {
+    margin-bottom: 0;
+    font-style: normal;
+    color: $grey;
+  }
 }
 
 ul li {
   margin-bottom: .25rem;
 }
 
-/* Tighten up margin on last items */
-p:last-child,
-ul:last-child,
-
-blockquote:last-child {
-  margin-bottom: 0;
-}
 
 // Code
 
