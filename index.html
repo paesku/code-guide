@@ -12,9 +12,6 @@ layout: default
     <ul>
       <li><a href="#css-basics">CSS Basics</a></li>
       <li><a href="#css-syntax">Syntax</a></li>
-      <li><a href="#css-single-declarations">Rules with single declarations</a></li>
-      <li><a href="#css-shorthand">Shorthand notation</a></li>
-      <li><a href="#css-comments">Comments</a></li>
       <li><a href="#css-classes">Classes</a></li>
       <li><a href="#css-selectors">Selectors</a></li>
     </ul>
@@ -22,7 +19,9 @@ layout: default
   <div class="col">
     <h4><a href="#scss">SCSS</a></h4>
     <ul>
-      <li><a href="#scss-themeing">Themeing</a></li>
+      <li><a href="#scss-single-declarations">Rules with single declarations</a></li>
+      <li><a href="#scss-shorthand">Shorthand notation</a></li>
+      <li><a href="#css-comments">Comments</a></li>
       <li><a href="#scss-variables">Variables</a></li>
       <li><a href="#scss-media-queries">Media queries</a></li>
       <li><a href="#scss-declaration-order">Declaration order</a></li>
@@ -31,6 +30,7 @@ layout: default
       <li><a href="#scss-statements">Statements</a></li>
       <li><a href="#scss-mixins">Mixins</a></li>
       <li><a href="#css-organization">Organization</a></li>
+      <li><a href="#scss-themeing">Themeing</a></li>
     </ul>
     <h4><a href="#appendix">Appendix</a></h4>
     <ul>
@@ -89,56 +89,6 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-single-declarations" data-scroll="css">
-  <div class="col">
-    <h3>Single declarations</h3>
-    <p>In instances where a rule set includes <strong>only one declaration</strong>, consider removing line breaks for
-      readability and faster editing. Any rule set with multiple declarations should be split to separate lines.</p>
-    <p>The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a
-      single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.</p>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/single-declarations.css %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-shorthand" data-scroll="css">
-  <div class="col">
-    <h3>Shorthand notation</h3>
-    <p>Strive to limit use of shorthand declarations to instances where you must explicitly set all the available
-      values. Common overused shorthand properties include:</p>
-    <ul>
-      <li><code>padding</code></li>
-      <li><code>margin</code></li>
-      <li><code>font</code></li>
-      <li><code>background</code></li>
-      <li><code>border</code></li>
-      <li><code>border-radius</code></li>
-    </ul>
-    <p>Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only
-      set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand
-      properties often leads to sloppier code with unnecessary overrides and unintended side effects.</p>
-    <p>The Mozilla Developer Network has a great article on
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand properties</a>
-      for those unfamiliar with notation and behavior.</p>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/shorthand.css %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-comments" data-scroll="css">
-  <div class="col">
-    <h3>Comments</h3>
-    <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by
-      others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.</p>
-    <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/comments.css %}{% endhighlight %}
-  </div>
-</div>
-
 <div class="section" id="css-classes" data-scroll="css">
   <div class="col">
     <h3>Class names</h3>
@@ -184,18 +134,78 @@ layout: default
   <h2>SCSS</h2>
 </div>
 
+<div class="section" id="scss-single-declarations" data-scroll="scss">
+  <div class="col">
+    <h3>Single declarations</h3>
+    <p>In instances where a rule set includes <strong>only one declaration</strong>, consider removing line breaks for
+      readability and faster editing. Any rule set with multiple declarations should be split to separate lines.</p>
+    <p>The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a
+      single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.</p>
+  <div class="scss-lint">
+    Ensured by <code>SingleLinePerProperty</code>
+  </div>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/single-declarations.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="scss-shorthand" data-scroll="scss">
+  <div class="col">
+    <h3>Shorthand notation</h3>
+    <p>Strive to limit use of shorthand declarations to instances where you must explicitly set all the available
+      values. Common overused shorthand properties include:</p>
+    <ul>
+      <li><code>padding</code></li>
+      <li><code>margin</code></li>
+      <li><code>font</code></li>
+      <li><code>background</code></li>
+      <li><code>border</code></li>
+      <li><code>border-radius</code></li>
+    </ul>
+    <p>Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only
+      set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand
+      properties often leads to sloppier code with unnecessary overrides and unintended side effects.</p>
+    <div class="hint">
+      <p>The Mozilla Developer Network has a great article on
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand properties</a>
+        for those unfamiliar with notation and behavior.</p>
+    </div>
+    <div class="scss-lint">
+      Ensured by <code>Shorthand</code>
+    </div>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/shorthand.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="scss-comments" data-scroll="scss">
+  <div class="col">
+    <h3>Comments</h3>
+    <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by
+      others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.</p>
+    <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/comments.scss %}{% endhighlight %}
+  </div>
+</div>
+
 <div class="section" id="scss-variables" data-scroll="scss">
   <div class="col">
     <h3>Variables</h3>
     <p>Ensure you extract component variables to the top of the component file.
     It helps other developers to get an overview of the available settings.</p>
-    <p class="scss-lint">
-      Ensured by
-      <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#nestingdepth">
-      NestingDepth
-      </a>
-      to extract color Variables.
-    </p>
+    <div class="scss-lint">
+      <p>
+        Ensured by
+        <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#nestingdepth">
+        NestingDepth
+        </a>
+        to extract color Variables.
+      </p>
+    </div>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/variables.scss %}{% endhighlight %}
