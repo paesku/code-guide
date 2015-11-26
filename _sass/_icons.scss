@@ -1,0 +1,15 @@
+// Icons
+$icon-color: #fff;
+
+.icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0.5rem;
+  vertical-align: middle;
+  transition: ease 200ms all;
+
+  &:hover {
+    color: darken($icon-color, 5%);
+  }
+}
