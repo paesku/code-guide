@@ -1,9 +1,17 @@
 // Without nesting
-.table > thead > tr > th { … }
-.table > thead > tr > td { … }
+.table > thead > tr {
+  color: $blue;
+}
 
 // With nesting
-.table > thead > tr {
-  > th { … }
-  > td { … }
+.table {
+
+  thead {
+
+    tr {
+
+      color: $blue;
+
+    }
+  }
 }

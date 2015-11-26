@@ -12,7 +12,6 @@ layout: default
     <ul>
       <li><a href="#css-basics">CSS Basics</a></li>
       <li><a href="#css-syntax">Syntax</a></li>
-      <li><a href="#css-declaration-order">Declaration order</a></li>
       <li><a href="#css-media-queries">Media query placement</a></li>
       <li><a href="#css-single-declarations">Rules with single declarations</a></li>
       <li><a href="#css-shorthand">Shorthand notation</a></li>
@@ -26,6 +25,7 @@ layout: default
     <ul>
       <li><a href="#sass-themeing">Themeing</a></li>
       <li><a href="#sass-variables">Variables in Sass</a></li>
+      <li><a href="#sass-declaration-order">Declaration order</a></li>
       <li><a href="#sass-nesting">Nesting in Sass</a></li>
       <li><a href="#sass-operators">Operators in Sass</a></li>
       <li><a href="#sass-statements">Statements in Sass</a></li>
@@ -85,28 +85,6 @@ layout: default
   </div>
   <div class="col">
     {% highlight css %}{% include css/syntax.css %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-declaration-order" data-scroll="css">
-  <div class="col">
-    <h3>Declaration order</h3>
-    <p>Related property declarations should be grouped together following the order:</p>
-    <ol>
-      <li>Positioning</li>
-      <li>Box model</li>
-      <li>Typographic</li>
-      <li>Visual</li>
-    </ol>
-    <p>Positioning comes first because it can remove an element from the normal flow of the document and override box
-      model related styles. The box model comes next as it dictates a component's dimensions and placement.</p>
-    <p>Everything else takes place <em>inside</em> the component or without impacting the previous two sections,
-      and thus they come last.</p>
-    <p>For a complete list of properties and their order,
-      please see <a href="http://twitter.github.com/recess">Recess</a>.</p>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/declaration-order.css %}{% endhighlight %}
   </div>
 </div>
 
@@ -221,11 +199,53 @@ layout: default
     <h3>Variables in Sass</h3>
     <p>Ensure you extract component variables to the top of the component file.
     It helps other developers to get an overview of the available settings.</p>
+    <p class="scss-lint">
+      Ensured by
+      <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#nestingdepth">
+      NestingDepth
+      </a>
+      to extract color Variables.
+    </p>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/variables.scss %}{% endhighlight %}
   </div>
 </div>
+
+<div class="section" id="sass-declaration-order" data-scroll="sass">
+  <div class="col">
+    <h3>Declaration order</h3>
+    <p>Related property declarations should be grouped together following the order:</p>
+    <ol>
+      <li>Positioning</li>
+      <li>Box model</li>
+      <li>Typographic</li>
+      <li>Visual</li>
+    </ol>
+    <p>Positioning comes first because it can remove an element from the normal flow of the document and override box
+      model related styles. The box model comes next as it dictates a component's dimensions and placement.</p>
+    <p>Everything else takes place <em>inside</em> the component or without impacting the previous two sections,
+      and thus they come last.</p>
+    <p>For a complete list of properties and their order,
+      please see <a href="http://twitter.github.com/recess">Recess</a>.</p>
+    <p class="scss-lint">
+      Ensured by
+      <a href="#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#propertysortorder">
+        PropertySortOrder
+      </a> which is set to
+      <a href="https://github.com/brigade/scss-lint/blob/master/data/property-sort-orders/recess.txt">
+        recess
+      </a> and
+      <a href="#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#declarationorder">
+        DeclarationOrder
+      </a>.
+    </p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/declaration-order.scss %}{% endhighlight %}
+  </div>
+</div>
+
 
 <div class="section" id="sass-nesting" data-scroll="sass">
   <div class="col">
@@ -237,6 +257,12 @@ layout: default
     <ul>
       <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass</a></li>
     </ul>
+    <p class="scss-lint">
+      Ensured by
+      <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#nestingdepth">
+        NestingDepth
+      </a> to <b>max 3</b> levels.
+    </p>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
@@ -273,7 +299,14 @@ layout: default
       If it is more component specific, give it some good defaults.
       Otherwise use a simple placehoder. You can use placholders together with mixins to make the code more structured.
     </p>
-    <p>Read more about <a href="http://www.sitepoint.com/8-tips-help-get-best-sass/">Sass best practices</a>.</p>
+    <p>
+      Also consider using Sass functions which only returning one value.
+    </p>
+    <p>Read more about:</p>
+    <ul>
+      <li><a href="http://thesassway.com/advanced/pure-sass-functions">Sass Functions</a></li>
+      <li><a href="http://www.sitepoint.com/8-tips-help-get-best-sass/">Sass best practices</a></li>
+    </ul>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/mixins.scss %}{% endhighlight %}
@@ -299,6 +332,25 @@ layout: default
   <h2>Appendix</h2>
 </div>
 
+<div class="section" id="scss-linter" data-scroll="css">
+  <div class="col">
+    <h3>SCSS Lint</h3>
+    <p>
+      To ensure the rules of this Guideline make use of a SCSS Linter with the settings found in:
+      <code>
+        .scss-lint-yml
+      </code>
+    </p>
+    <p>
+      Additional Reading:
+    </p>
+    <ul>
+      <li><a href="http://github.com/brigade/scss-lint/tree/master/lib/scss_lint/linter#linters">SCSS Linters</a></li>
+      <li><a href="http://sass-guidelin.es/#scss-lint">SASS Guidelines</a></li>
+    </ul>
+  </div>
+
+</div>
 
 <div class="section" id="editor-prefs" data-scroll="css">
   <div class="col">
