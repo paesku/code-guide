@@ -67,24 +67,26 @@ h4 {
   font-size: 1.25rem;
 }
 
-
-h3 > sup > a {
-  margin-left: 10px;
-  font-size: 14px;
-  color: $grey;
-}
-
-h3 > a:hover {
-  color: $darkgrey;
-  text-decoration: none;
-}
-
 p {
   margin: 0 0 1rem;
 }
 
 .lead {
   font-size: 1.3rem;
+}
+
+sup {
+
+  a {
+    margin-left: 10px;
+    font-size: 14px;
+    color: $grey;
+
+    &:hover {
+      color: $darkgrey;
+      text-decoration: none;
+    }
+  }
 }
 
 blockquote {
@@ -251,6 +253,23 @@ pre code {
 }
 
 
+// Hints
+
+.hint {
+  padding: .5rem;
+  background-color: lighten($lightgrey, 15%);
+}
+
+
+// Lints
+
+.scss-lint {
+  padding: .5rem;
+  margin-top: 2rem;
+  border-top: 2px solid $lightgrey;
+}
+
+
 // Footer
 
 .footer {
@@ -270,9 +289,4 @@ pre code {
   li {
     display: inline;
  }
-}
-
-.scss-lint {
-  padding: .5rem;
-  background-color: lighten($lightgrey, 5%);
 }

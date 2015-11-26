@@ -12,7 +12,6 @@ layout: default
     <ul>
       <li><a href="#css-basics">CSS Basics</a></li>
       <li><a href="#css-syntax">Syntax</a></li>
-      <li><a href="#css-media-queries">Media query placement</a></li>
       <li><a href="#css-single-declarations">Rules with single declarations</a></li>
       <li><a href="#css-shorthand">Shorthand notation</a></li>
       <li><a href="#css-comments">Comments</a></li>
@@ -21,15 +20,16 @@ layout: default
     </ul>
   </div>
   <div class="col">
-    <h4><a href="#sass">SASS</a></h4>
+    <h4><a href="#scss">SCSS</a></h4>
     <ul>
-      <li><a href="#sass-themeing">Themeing</a></li>
-      <li><a href="#sass-variables">Variables in Sass</a></li>
-      <li><a href="#sass-declaration-order">Declaration order</a></li>
-      <li><a href="#sass-nesting">Nesting in Sass</a></li>
-      <li><a href="#sass-operators">Operators in Sass</a></li>
-      <li><a href="#sass-statements">Statements in Sass</a></li>
-      <li><a href="#sass-mixins">Mixins in Sass</a></li>
+      <li><a href="#scss-themeing">Themeing</a></li>
+      <li><a href="#scss-variables">Variables</a></li>
+      <li><a href="#scss-media-queries">Media queries</a></li>
+      <li><a href="#scss-declaration-order">Declaration order</a></li>
+      <li><a href="#scss-nesting">Nesting</a></li>
+      <li><a href="#scss-operators">Operators</a></li>
+      <li><a href="#scss-statements">Statements</a></li>
+      <li><a href="#scss-mixins">Mixins</a></li>
       <li><a href="#css-organization">Organization</a></li>
     </ul>
     <h4><a href="#appendix">Appendix</a></h4>
@@ -39,6 +39,7 @@ layout: default
   </div>
 </div>
 
+<!-- CSS Part -->
 <div class="heading" id="css">
   <h2>CSS</h2>
 </div>
@@ -85,18 +86,6 @@ layout: default
   </div>
   <div class="col">
     {% highlight css %}{% include css/syntax.css %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-media-queries" data-scroll="css">
-  <div class="col">
-    <h3>Media query placement</h3>
-    <p>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate
-      stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
-      Here's a typical setup.</p>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/media-queries.css %}{% endhighlight %}
   </div>
 </div>
 
@@ -162,7 +151,7 @@ layout: default
       <li>Use meaningful names; use structural or purposeful names over presentational.</li>
       <li>Prefix classes based on the closest parent or base class.</li>
     </ul>
-    <p>It's also useful to apply many of these same rules when creating Sass variable names.</p>
+    <p>It's also useful to apply many of these same rules when creating SCSS variable names.</p>
   </div>
   <div class="col">
     {% highlight css %}{% include css/class-names.css %}{% endhighlight %}
@@ -190,13 +179,14 @@ layout: default
   </div>
 </div>
 
-<div class="heading" id="sass">
-  <h2>SASS</h2>
+<!-- SCSS Part -->
+<div class="heading" id="scss">
+  <h2>SCSS</h2>
 </div>
 
-<div class="section" id="sass-variables" data-scroll="sass">
+<div class="section" id="scss-variables" data-scroll="scss">
   <div class="col">
-    <h3>Variables in Sass</h3>
+    <h3>Variables</h3>
     <p>Ensure you extract component variables to the top of the component file.
     It helps other developers to get an overview of the available settings.</p>
     <p class="scss-lint">
@@ -212,7 +202,31 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="sass-declaration-order" data-scroll="sass">
+<div class="section" id="scss-media-queries" data-scroll="scss">
+  <div class="col">
+    <h3>Media query placement</h3>
+    <p>Always thinking from small screens to larger, place media queries at the end of the previous properties. Don't bundle them all in a separate
+      stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
+    </p>
+    <p>
+      Name Breakpoints as general as possible.
+    </p>
+    <div class="hint">
+      <p>
+        Further reading:
+      </p>
+      <ul>
+        <li><a href="http://sass-guidelin.es/#naming-breakpoints">Sass Guidelines</a></li>
+        <li><a href="http://www.sitepoint.com/managing-responsive-breakpoints-sass/">Managing breakpoints</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/media-queries.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="scss-declaration-order" data-scroll="scss">
   <div class="col">
     <h3>Declaration order</h3>
     <p>Related property declarations should be grouped together following the order:</p>
@@ -226,20 +240,23 @@ layout: default
       model related styles. The box model comes next as it dictates a component's dimensions and placement.</p>
     <p>Everything else takes place <em>inside</em> the component or without impacting the previous two sections,
       and thus they come last.</p>
-    <p>For a complete list of properties and their order,
+    <div class="hint">
+      <p>For a complete list of properties and their order,
       please see <a href="http://twitter.github.com/recess">Recess</a>.</p>
-    <p class="scss-lint">
-      Ensured by
-      <a href="#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#propertysortorder">
-        PropertySortOrder
-      </a> which is set to
-      <a href="https://github.com/brigade/scss-lint/blob/master/data/property-sort-orders/recess.txt">
-        recess
-      </a> and
-      <a href="#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#declarationorder">
-        DeclarationOrder
-      </a>.
-    </p>
+    </div>
+    <div class="scss-lint">
+      <p>Ensured by
+        <a href="#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#propertysortorder">
+          PropertySortOrder
+        </a> which is set to
+        <a href="https://github.com/brigade/scss-lint/blob/master/data/property-sort-orders/recess.txt">
+          recess
+        </a> and
+        <a href="#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#declarationorder">
+          DeclarationOrder
+        </a>.
+      </p>
+    </div>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/declaration-order.scss %}{% endhighlight %}
@@ -247,31 +264,34 @@ layout: default
 </div>
 
 
-<div class="section" id="sass-nesting" data-scroll="sass">
+<div class="section" id="scss-nesting" data-scroll="scss">
   <div class="col">
-    <h3>Nesting in Sass</h3>
+    <h3>Nesting</h3>
     <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should.
       Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.
     Ensure that outcoming css is still readable.</p>
-    <p>Additional reading:</p>
-    <ul>
-      <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass</a></li>
-    </ul>
-    <p class="scss-lint">
-      Ensured by
-      <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#nestingdepth">
-        NestingDepth
-      </a> to <b>max 3</b> levels.
-    </p>
+    <div class="hint">
+      <p>Additional reading:</p>
+      <ul>
+        <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in SCSS</a></li>
+      </ul>
+    </div>
+    <div class="scss-lint">
+      <p>Ensured by
+        <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#nestingdepth">
+          NestingDepth
+        </a> to <b>max 3</b> levels.
+      </p>
+    </div>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
   </div>
 </div>
 
-<div class="section" id="sass-operators" data-scroll="sass">
+<div class="section" id="scss-operators" data-scroll="scss">
   <div class="col">
-    <h3>Operators in Sass</h3>
+    <h3>Operators</h3>
     <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables,
       and operators.</p>
   </div>
@@ -280,10 +300,10 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="sass-statements" data-scroll="sass">
+<div class="section" id="scss-statements" data-scroll="scss">
   <div class="col">
-    <h3>Statements in Sass</h3>
-    <p>Read more about <a href="http://thesassway.com/intermediate/if-for-each-while">statements in Sass</a>.</p>
+    <h3>Statements</h3>
+    <p>Read more about <a href="http://thescssway.com/intermediate/if-for-each-while">statements in SCSS</a>.</p>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/statements.scss %}{% endhighlight %}
@@ -291,29 +311,31 @@ layout: default
 </div>
 
 
-<div class="section" id="sass-mixins" data-scroll="sass">
+<div class="section" id="scss-mixins" data-scroll="scss">
   <div class="col">
-    <h3>Mixins in Sass</h3>
+    <h3>Mixins</h3>
     <p>
       Use mixins if you use at least on argument, so it can be reused and modified.
       If it is more component specific, give it some good defaults.
       Otherwise use a simple placehoder. You can use placholders together with mixins to make the code more structured.
     </p>
     <p>
-      Also consider using Sass functions which only returning one value.
+      Also consider using SCSS functions which only returning one value.
     </p>
-    <p>Read more about:</p>
-    <ul>
-      <li><a href="http://thesassway.com/advanced/pure-sass-functions">Sass Functions</a></li>
-      <li><a href="http://www.sitepoint.com/8-tips-help-get-best-sass/">Sass best practices</a></li>
-    </ul>
+    <div class="hint">
+      <p>Read more about:</p>
+      <ul>
+        <li><a href="http://thescssway.com/advanced/pure-scss-functions">SCSS Functions</a></li>
+        <li><a href="http://www.sitepoint.com/8-tips-help-get-best-scss/">SCSS best practices</a></li>
+      </ul>
+    </div>
   </div>
   <div class="col">
     {% highlight scss %}{% include css/mixins.scss %}{% endhighlight %}
   </div>
 </div>
 
-<div class="section" id="sass-organization" data-scroll="sass">
+<div class="section" id="scss-organization" data-scroll="scss">
   <div class="col">
     <h3>Organization</h3>
     <ul>
@@ -328,31 +350,30 @@ layout: default
   </div>
 </div>
 
-<div class="heading" id="appendix" data-scroll="css">
+<div class="heading" id="appendix" data-scroll="appendix">
   <h2>Appendix</h2>
 </div>
 
-<div class="section" id="scss-linter" data-scroll="css">
+<div class="section" id="scss-linter" data-scroll="appendix">
   <div class="col">
     <h3>SCSS Lint</h3>
     <p>
       To ensure the rules of this Guideline make use of a SCSS Linter with the settings found in:
-      <code>
-        .scss-lint-yml
-      </code>
+      <a href="https://github.com/paesku/scss-code-guide/blob/gh-pages/.scss-lint.yml">.scss-lint.yml</a>
     </p>
-    <p>
-      Additional Reading:
-    </p>
-    <ul>
-      <li><a href="http://github.com/brigade/scss-lint/tree/master/lib/scss_lint/linter#linters">SCSS Linters</a></li>
-      <li><a href="http://sass-guidelin.es/#scss-lint">SASS Guidelines</a></li>
-    </ul>
+    <div class="hint">
+      <p>
+        Additional Reading:
+      </p>
+      <ul>
+        <li><a href="http://github.com/brigade/scss-lint/tree/master/lib/scss_lint/linter#linters">SCSS Linters</a></li>
+        <li><a href="http://scss-guidelin.es/#scss-lint">SASS Guidelines</a></li>
+      </ul>
+    </div>
   </div>
-
 </div>
 
-<div class="section" id="editor-prefs" data-scroll="css">
+<div class="section" id="editor-prefs" data-scroll="appendix">
   <div class="col">
     <h3>Editor preferences</h3>
     <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
