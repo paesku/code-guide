@@ -1,15 +1,32 @@
 // Icons
 $icon-color: #fff;
+$icon-size-large: 40px;
+$icon-size-small: $icon-size-large / 2;
+$icon-link-color: $base-font-color;
 
 .icon {
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: $icon-size-large;
+  height: $icon-size-large;
   margin: 0.5rem;
   vertical-align: middle;
   transition: ease 200ms all;
 
   &:hover {
     color: darken($icon-color, 5%);
+  }
+}
+
+
+.icon-small {
+  color: $icon-link-color;
+  display: inline-block;
+  width: $icon-size-small;
+  height: $icon-size-small;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
+  transition: ease 200ms all;
+  &:hover {
+    color: darken($icon-link-color, 5%);
   }
 }
