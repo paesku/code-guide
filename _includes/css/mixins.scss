@@ -1,11 +1,11 @@
-/* Good Example */
+// Good Example
 
 @mixin theme-background($bg: #f55) {
     background-color: $bg;
 }
 
 
-/* Bad Example */
+// Bad Example
 
 @mixin button {
     padding: 10px;
@@ -18,13 +18,12 @@
     display: block;
 }
 
-
 .wrapper {
   @include theme-background(#0f9);
 }
 
 
-/* Placeholder */
+// Placeholder
 
 %bg-image {
     width: 100%;

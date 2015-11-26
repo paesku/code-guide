@@ -15,6 +15,7 @@ $white: #fff;
 $bg-color: $white;
 $intro-bg-color: #2a3440;
 $section-bg-color: #dfe1e8;
+$section-border-color: lighten($grey, 6%);
 
 html {
   font-size: $base-font-size;
@@ -168,7 +169,7 @@ pre code {
 
   + .col {
     background-color: lighten($lightgrey, 16%);
-    border-top: 1px solid lighten($grey, 6%);
+    border-top: 1px solid $section-border-color;
   }
 }
 
@@ -246,7 +247,7 @@ pre code {
 }
 
 .section {
-  border-bottom: 1px solid $section-bg-color;
+  border-bottom: 1px solid $section-border-color;
 }
 
 
