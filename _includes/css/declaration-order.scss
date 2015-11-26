@@ -1,0 +1,34 @@
+.declaration-order {
+  // Extensions and mixins are declared at top of the class
+  @extend %clearfix;
+
+  @include hover-shadow();
+
+  // Positioning
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  // Box-model
+  display: block;
+  float: right;
+  width: 100px;
+  height: 100px;
+
+  // Typography
+  font: normal 13px 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: $blue;
+  text-align: center;
+
+  // Visual
+  background-color: $green;
+  border: 1px solid $rebeccapurple;
+  border-radius: 3px;
+
+  // Misc
+  opacity: 1;
+}
