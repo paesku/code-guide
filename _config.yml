@@ -4,4 +4,4 @@ description:   Standards for developing flexible, durable, and sustainable CSS, 
 
 markdown:      rdiscount
 permalink:     pretty
-highlighter:   rouge
+highlighter:   pygments
